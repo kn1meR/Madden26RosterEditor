@@ -30,9 +30,9 @@ There are two ways to get started with the Madden Roster Editor: as a user or as
 ### For Users
 
 1.  Go to the **[Releases](https://github.com/kn1meR/Madden26RosterEditor/releases)** page of this GitHub repository.
-2.  Download the latest `.zip` file (e.g., `MRE26_v1.0.zip`).
+2.  Download the latest `.zip` file (e.g., `MRE_v1.0.zip`).
 3.  Extract the contents.
-4.  Run the `MRE26.exe` executable.
+4.  Run the `MRE.exe` executable.
 
 ### For Developers
 
