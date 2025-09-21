@@ -1,4 +1,4 @@
-# Madden 26 Roster Editor
+# Madden Roster Editor
 
 A powerful, modern, and user-friendly desktop application for viewing and editing Madden roster files. Built with Python, PyQt6, and pandas, this tool provides a rich user interface for in-depth player modification.
 
