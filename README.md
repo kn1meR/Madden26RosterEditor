@@ -36,15 +36,56 @@ There are two ways to get started with the Madden Roster Editor: as a user or as
 
 ### For Developers
 
-COMING SOON
+If you want to run the application from the source code or contribute to its development:
+
+1.  **Prerequisites:**
+    *   Python 3.10+
+    *   Node.js (for the roster I/O script)
+
+2.  **Clone the repository:**
+    ```sh
+    git clone https://github.com/kn1meR/MaddenRosterEditor.git
+    cd MaddenRosterEditor
+    ```
+
+3.  **Create and activate a virtual environment:**
+    ```sh
+    python -m venv venv
+    .\venv\Scripts\activate
+    ```
+
+4.  **Install dependencies:**
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+5.  **Run the application:**
+    ```sh
+    python src/mrepAPI.py
+    ```
 
 ## Configuration
 
-COMING SOON
+The application is highly configurable via files located in the `config/` directory.
+
+*   **`config.json`**: The central configuration file. It contains all the necessary data maps:
+    *   `header_map`: Translates cryptic roster codes (e.g., `PFNA`) to readable names ("First Name").
+    *   `position_map`, `team_map`, `archetype_map`, etc.: Map numeric IDs to their string representations.
+*   **`ui_layout.json`**: Defines the entire layout of the player editor, including which attributes appear on which tab and in which group.
+*   **`archetype_breakdown.xlsx`**: The spreadsheet used by the Overall and Archetype calculators to determine weights and formulas.
+*   **`settings.json`**: This file is created automatically in the same directory as the `.exe` when you first save your settings (e.g., the path to your player images folder).
 
 ## Building the Executable
 
-COMING SOON
+This project uses **PyInstaller** to package the application into a single `.exe` file.
+
+1.  Ensure you have followed the "For Developers" setup steps.
+2.  Make sure PyInstaller is installed (`pip install pyinstaller`).
+3.  Run the build command from the project's root directory:
+    ```sh
+    pyinstaller MREP.spec
+    ```
+4.  The final standalone executable will be located in the `dist/` folder.
 
 ## License
 
