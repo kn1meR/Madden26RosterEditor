@@ -1,0 +1,339 @@
+Quarterbacks
+
+	Ball Carrier Vision
+						      AWR   CAR   BTK   SPD   | AWR  CAR   BTK
+	=PRODUCT(IF(OR(C="Scrambler", C="Improviser"), P*0.2+Q*0.4+S*0.2+L*0.2, P*0.2+Q*0.6+S*0.2 ))
+
+	Medium Accuracy
+	 SAC     THP    AWR   
+	=(AH*0.35+AG*.4+P*.25)
+
+	Deep Accuracy
+	 THP	MAC	AWR
+	=(AG*0.4+AI*0.30+P3*0.30)
+
+	Throw On The Run
+	 						 SAC	   MAC	    DAC	   AWR    AGI    BCV  	     |  SAC	 MAC	  DAC	 AWR    AGI    BCV
+	=PRODUCT(IF(OR(C6="Scrambler", C6="Improviser"), (AH6*0.15+AI6*0.15+AJ6*0.1+P6*0.2+N6*0.2+R6*0.2)*1.05, AH6*0.15+AI6*0.15+AJ6*0.1+P6*0.2+N6*0.2+R6*0.2)))
+
+	Throw Under Pressure
+	 AWR   SAC    MAC     DAC     TOR
+	=(P*0.4+AH*0.15+AI*0.15+AJ*0.15+AK*0.15)
+
+	Break Sack
+	 					       AGI   BTK   AWR   BCV   CAR	   | AGI   BTK  AWR   BCV   CAR
+	=PRODUCT(IF(OR(C="Scrambler", C="Improviser"), (N*0.2+S*0.3+P*0.2+R*0.2+Q*0.1)*1.05, N*0.2+S*0.3+P*0.2+R*0.2+Q*0.1 ))
+
+	Play Action
+	 						      SAC      MAC      DAC    AWR     CAR     TOR	|  SAC      MAC      DAC    AWR     CAR     TOR
+	=PRODUCT(IF(OR(C2="Field General", C2="Improviser"), (AH2*0.15+AI2*0.15+AJ2*0.2+P2*0.25+Q2*0.1+AK2*0.15), (AH2*0.15+AI2*0.15+AJ2*0.2+P2*0.25+Q2*0.1+AK2*0.15)*.95))
+
+Halfback
+
+	Trucking
+	 			     BTK    STR    ACC		| BTK      STR     ACC
+	=PRODUCT(IF(C="Power Back"), (S*0.65+O*0.25+M*0.10)*1.05, (S*0.75)+(O*0.2)+(M*0.05))
+
+	Stiff Arm
+	 			     STR    BTK		 | STR    BTK
+	=PRODUCT(IF(C2="Power Back", (O2*0.4+S2*0.6)*1.05, (O2*0.4+S2*0.6)))
+
+	Elusiveness
+	 			       BCV     SPD     ACC    AGI	  |   BCV     SPD     ACC     AGI
+	=PRODUCT(IF(C3="Elusive Back", (R3*0.60+L3*0.10+M3*.15+N3*0.15)*1.05, (R3*0.60+L3*0.10+M3*0.15+N3*0.15)))
+
+	Spin Move
+	 			       ELU    BTK    ACC    AGI	   |  ELU    BTK    ACC    AGI
+	=PRODUCT(IF(C2="Elusive Back", (V2*0.5+S2*0.2+M2*0.1+N2*0.2), (V2*0.5+S2*0.2+M2*0.1+N2*0.2)*0.95))
+
+	Juke Move
+	 			       ELU    AGI    ACC     | ELU    AGI    ACC
+	=PRODUCT(IF(C2="Elusive Back", (V2*0.6+N2*0.2+M2*0.2), (V2*0.6+N2*0.2+M2*0.2)*0.95))
+
+	Catching In Traffic
+	 				 CTH    AWR   	   |  CTH    AWR
+	=PRODUCT(IF(C2="Receiving Back", (Y2*1.4+P2*0.6)*.45, (Y2*1.4+P2*0.6)*.40))
+
+	Spectacular Catching
+	 				 CTH    CIT     AWR         |  CTH    CIT     AWR
+	=PRODUCT(IF(C2="Receiving Back", (Y2*0.6+Z2*0.75+P2*0.65)*.45, (Y2*0.6+Z2*0.75+P2*0.65)*.40))
+
+	Short Route Running
+	 				 AWR    AGI    ACC    CTH     CIT    RLS	|    AWR    AGI    ACC    CTH     CIT    RLS
+	=PRODUCT(IF(C2="Receiving Back", (P2*0.4+N2*0.4+M2*0.2+Y2*0.35+Z2*0.2+AE2*0.35)*.45, (P2*0.4+N2*0.4+M2*0.2+Y2*0.35+Z2*0.2+AE2*0.35)*.40)
+
+	Medium Route Running
+	 				 AWR     AGI    ACC    CTH    CIT     SPC     RLS      JMP 	|   AWR     AGI    ACC    CTH    CIT     SPC     RLS      JMP
+	=PRODUCT(IF(C2="Receiving Back", (P2*0.24+N2*0.2+M2*0.2+Y2*0.3+Z2*0.4+AA2*0.2+AE2*0.36+AF2*0.1)*.4, (P2*0.24+N2*0.2+M2*0.2+Y2*0.3+Z2*0.4+AA2*0.2+AE2*0.36+AF2*0.1)*.35)
+
+	Deep Route Running
+	 				 AWR    AGI    ACC      SPC     CIT     CTH     RLS      JMP	   |   AWR    AGI    ACC      SPC     CIT     CTH     RLS      JMP
+	=PRODUCT(IF(C2="Receiving Back", (P2*0.2+N2*0.15+M2*0.2+AA2*0.35+Z2*0.25+Y2*0.4+AE2*0.25+AF2*0.2)*.33, (P2*0.2+N2*0.15+M2*0.2+AA2*0.35+Z2*0.25+Y2*0.4+AE2*0.25+AF2*0.2)*.25)
+
+	Release
+	 				 ACC    AGI    AWR    CTH	|  ACC    AGI    AWR    CTH
+	=PRODUCT(IF(C2="Receiving Back", (M2*0.3+N2*0.4+P2*0.5+Y2*0.8)*.4, (M2*0.3+N2*0.4+P2*0.5+Y2*0.8)*.35)
+
+Wide Receiver
+
+	Catching In Traffic
+	 					  CTH    AWR   	     |  CTH    AWR
+	=PRODUCT(IF(OR(C2="Physical", C2="Slot"), (Y2*0.7+P2*0.3)*1.05, (Y2*0.7+P2*0.3)))
+
+	Spectacular Catching
+	 						 CTH    CIT    AWR	   |  CTH    CIT    AWR
+	=PRODUCT(IF(OR(C2="Physical", C2="Deep Threat"), (Y2*0.4+Z2*0.4+P2*0.2)*1.05, (Y2*0.4+Z2*0.4+P2*0.2)))
+
+	Short Route Running
+	 					       AWR    AGI    ACC    CTH     CIT      RLS	|  AWR    AGI    ACC    CTH     CIT      RLS
+	=PRODUCT(IF(OR(C2="Slot", C2="Route Running"), (P2*0.4+N2*0.4+M2*0.2+Y2*0.35+Z2*0.25+AE2*0.3)*.55, (P2*0.4+N2*0.4+M2*0.2+Y2*0.35+Z2*0.25+AE2*0.3)*.5))
+
+	Medium Route Running
+	 					       AWR     AGI     ACC    CTH    CIT     SPC      RLS	|    AWR     AGI     ACC    CTH    CIT     SPC      RLS
+	=PRODUCT(IF(OR(C2="Slot", C2="Route Running"), (P2*0.24+N2*0.24+M2*0.2+Y2*0.3+Z2*0.4+AA2*0.26+AE2*0.36)*.55, (P2*0.24+N2*0.24+M2*0.2+Y2*0.3+Z2*0.4+AA2*0.26+AE2*0.36)*.5))
+
+	Deep Route Running
+	 AWR    AGI    ACC     SPC    CIT    CTH     RLS     JMP
+	=(P2*0.2+N2*0.2+M2*0.2+AA2*0.3+Z2*0.3+Y2*0.4+AE2*0.3+AF2*0.1)*.5
+	=PRODUCT(IF(OR(C2="Deep Threat", C2="Route Running"), (P2*0.2+N2*0.2+M2*0.2+AA2*0.3+Z2*0.3+Y2*0.4+AE2*0.3+AF2*0.1)*.5, (P2*0.2+N2*0.2+M2*0.2+AA2*0.3+Z2*0.3+Y2*0.4+AE2*0.3+AF2*0.1)*.45)
+
+	Release
+	 		       ACC    AGI    AWR    CTH    CIT     SPC		| ACC    AGI    AWR    CTH    CIT     SPC
+	=PRODUCT(IF(C2="Slot", (M2*0.2+N2*0.2+P2*0.3+Y2*0.8+Z2*0.3+AA2*0.2)*.525, (M2*0.2+N2*0.2+P2*0.3+Y2*0.8+Z2*0.3+AA2*0.2)*.5)
+
+Tight End
+	Catching in Traffic
+
+	=PRODUCT(IF(OR(C2="Vertical Threat", C2="Possession"), (Y2*0.7+P2*0.3)*1.05, (Y2*0.7+P2*0.3)))
+
+	Spectacular Catching
+
+	=PRODUCT(IF(C2="Vertical Threat", (Y2+Z2*0.8+P2*0.2)*.525, (Y2+Z2*0.8+P2*0.2)*.5)
+
+	Short Route Running
+	
+	=PRODUCT(IF(C2="Possession", (P2*0.4+N2*0.4+M2*0.2+Y2*0.35+Z2*0.25+AE2*0.3)*.525, (P2*0.4+N2*0.4+M2*0.2+Y2*0.35+Z2*0.25+AE2*0.3)*.5)
+
+	Medium Route Running
+	
+	=PRODUCT(IF(OR(C2="Vertical Threat", C2="Possession"), (P2*0.24+N2*0.24+M2*0.2+Y2*0.3+Z2*0.4+AA2*0.26+AE2*0.36)*.5, (P2*0.24+N2*0.24+M2*0.2+Y2*0.3+Z2*0.4+AA2*0.26+AE2*0.36)*.45))
+
+	Deep Route Running
+	
+	=PRODUCT(IF(C2="Vertical Threat", (P2*0.2+N2*0.2+M2*0.2+AA2*0.3+Z2*0.3+Y2*0.4+AE2*0.3+AF2*0.1)*.525, (P2*0.2+N2*0.2+M2*0.2+AA2*0.3+Z2*0.3+Y2*0.4+AE2*0.3+AF2*0.1)*.5)
+
+	Release
+
+	=(M2*0.2+N2*0.2+P2*0.3+Y2*0.8+Z2*0.3+AA2*0.2)*.5
+	=PRODUCT(IF(C2="Vertical Threat", (M2*0.2+N2*0.2+P2*0.3+Y2*0.8+Z2*0.3+AA2*0.2)*.525, (M2*0.2+N2*0.2+P2*0.3+Y2*0.8+Z2*0.3+AA2*0.2)*.5)
+
+	Pass Block Power
+
+	=PRODUCT(IF(C2="Blocking", (O2*0.3+AO2*0.7), (O2*0.3+AO2*0.7)*.9))
+
+	Pass Block Finessee
+	
+	=PRODUCT(IF(C2="Blocking", (N2*0.3+AO2*0.7), (N2*0.3+AO2*0.7)*.9))
+
+	Run Block Power
+
+	=PRODUCT(IF(C2="Blocking", (O2*0.3+AR2*0.7), (O2*0.3+AR2*0.7)*.9))
+
+	Run Block Finesse
+
+	=PRODUCT(IF(C2="Blocking", (N2*0.3+AR2*0.7), (N2*0.3+AR2*0.7)*.9))
+
+	Lead Blocking
+
+	=PRODUCT(IF(C2="Blocking", (N2*0.15+M2*0.15+AQ2*0.3+AT2*0.3+P2*0.1), (N2*0.15+M2*0.15+AQ2*0.3+AT2*0.3+P2*0.1)*.9))
+
+	Impact Blocking
+
+	=PRODUCT(IF(C2="Blocking", (O2*0.3+AP2*0.3+AS2*0.3+P2*0.1), (O2*0.3+AP2*0.3+AS2*0.3+P2*0.1)*.9))
+
+Defensive Linemen
+
+	Impact Blocking
+				      STR     BSH     FMV     PRC      PMV
+	=PRODUCT(IF(C2="Run Stopper", (O2*0.3+AZ2*0.2+BA2*0.2+AW2*0.15+BB2*0.15)*1.05, (O2*0.3+AZ2*0.2+BA2*0.2+AW2*0.15+BB2*0.15))
+
+	Play Recognition
+
+	=PRODUCT(IF(C2="Run Stopper", (P2*0.8+AX2*1.2)*.5, (P2*0.8+AX2*1.2)*.475)
+
+	Hit Power
+	 STR	ACC	TKL
+	=(O2*1.0+M2*0.5+AX2*0.5)*.5
+
+	Block Shedding
+	  TKL	  PRC	 AGI	ACC
+	=(AX2*0.5+AW2*1.0+N2*0.3+M2*0.2)*.5
+	
+	Finesse Moves
+				       ACC    AGI    SPD     PRC     BSH  	|   ACC    AGI    SPD     PRC     BSH   
+	=PRODUCT(IF(C2="Speed Rusher", (M2*0.3+N2*0.3+L2*0.2+AW2*0.8+AZ2*0.4)*.525, (M2*0.3+N2*0.3+L2*0.2+AW2*0.8+AZ2*0.4)*.45)
+
+	Power Moves
+	 			       AGI     STR     PRC     BSH    ACC	   |  AGI     STR     PRC     BSH    ACC
+	=PRODUCT(IF(C2="Power Rusher", (N2*0.15+O2*0.5+AW2*0.8+AZ2*0.4+M2*0.15)*.525, (N2*0.15+O2*0.5+AW2*0.8+AZ2*0.4+M2*0.15)*.45)
+
+	Pursuit
+	 AGI    ACC     PRC     TKL     BSH    STR     STA
+	=(N2*0.1+M2*0.1+AW2*0.7+AX2*0.4+AZ2*0.5+O2*0.1+BJ2*0.1)*.5
+
+	Man Coverage
+
+	=(L2*0.35+M2*0.15+N2*0.35+P2*0.1+AW2*0.3+BC2*0.2+Z2*0.2+AA2*0.5+Y2*0.2)*0.2
+
+	Zone Coverage
+
+	=(P2*0.4+N2*0.4+M2*0.2+AW2*0.5+BC2*0.3+AX2*0.2)*0.2
+
+	Press
+
+	=(BD2*0.6+AW2*0.4+O2*0.3+P2*0.2+M2*0.2+N2*0.3)*0.2
+
+
+Linebackers
+
+	Catching in Traffic
+
+	=PRODUCT(IF(OR(C2="Pass Coverage", C2="Field General"), (Y2*0.7+P2*0.3)*0.6, (Y2*0.7+P2*0.3)*0.4))
+
+	Spectacular Catch
+
+	=PRODUCT(IF(OR(C2="Pass Coverage", C2="Field General"), (Y2*0.4+Z2*0.4+P2*0.2)*0.6, (Y2*0.4+Z2*0.4+P2*0.2)*0.4))
+	 
+	Impact Blocking
+
+	=PRODUCT(IF(C2="Run Stopper", (O2*0.3+AZ2*0.2+BA2*0.2+AW2*0.15+BB2*0.15)*1.05, (O2*0.3+AZ2*0.2+BA2*0.2+AW2*0.15+BB2*0.15))
+
+	Play Recognition
+
+	=PRODUCT(IF(C2="Run Stopper", (P2*0.8+AX2*1.2)*.5, (P2*0.8+AX2*1.2)*.475)
+	
+	Hit Power
+
+	=(O2*1.0+M2*0.5+AX2*0.5)*.5
+
+	Block Shedding
+
+	=(AX2*0.5+AW2*1.0+N2*0.3+M2*0.2)*.5
+
+	Finesse Moves
+
+	=PRODUCT(IF(C2="Speed Rusher", (M2*0.3+N2*0.3+L2*0.2+AW2*0.8+AZ2*0.4)*.525, (M2*0.3+N2*0.3+L2*0.2+AW2*0.8+AZ2*0.4)*.45)
+
+	Power Moves
+
+	=PRODUCT(IF(C2="Power Rusher", (N2*0.15+O2*0.5+AW2*0.8+AZ2*0.4+M2*0.15)*.525, (N2*0.15+O2*0.5+AW2*0.8+AZ2*0.4+M2*0.15)*.45)
+
+	Pursuit
+
+	=(N2*0.1+M2*0.1+AW2*0.7+AX2*0.4+AZ2*0.5+O2*0.1+BJ2*0.1)*.5
+
+	Man Coverage
+	 							SPD     ACC     AGI      PRC     PUR    CIT      SPC     CTH
+	=PRODUCT(IF(OR(C3="Pass Coverage", C3="Field General"), (L3*0.25+M3*0.25+N3*0.25+AW3*0.4+BC3*0.3+Z3*0.15+AA3*0.15+Y3*0.25)*0.4, (L3*0.25+M3*0.25+N3*0.25+AW3*0.4+BC3*0.3+Z3*0.15+AA3*0.15+Y3*0.25)*0.2))
+
+	Zone Coverage
+	 							AGI    ACC     PRC     PUR     TKL
+	=PRODUCT(IF(OR(C3="Pass Coverage", C3="Field General"), (N3*0.4+M3*0.2+AW3*0.7+BC3*0.5+AX3*0.2)*.4, (N3*0.4+M3*0.2+AW3*0.7+BC3*0.5+AX3*0.2)*.2))
+	
+	Press
+	 
+	=PRODUCT(IF(OR(C2="Pass Coverage", C2="Field General"), (BD2*0.6+AW2*0.4+O2*0.3+P2*0.2+M2*0.2+N2*0.3)*.3, (BD2*0.6+AW2*0.4+O2*0.3+P2*0.2+M2*0.2+N2*0.3)*.2))
+
+Cornerbacks
+
+	Catching in Traffic
+
+	=PRODUCT(IF(C2="Zone", (Y2*0.7+P2*0.3)*0.65, (Y2*0.7+P2*0.3)*0.5))
+
+	Spectacular Catch
+
+	=PRODUCT(IF(C2="Zone", (Y2*0.4+Z2*0.4+P2*0.2)*0.6, (Y2*0.4+Z2*0.4+P2*0.2)*0.5))
+
+	Impact Blocking
+
+	=O2*0.3+AZ2*0.2+BA2*0.2+AW2*0.15+BB2*0.15
+
+	Play Recognition
+	 AWR     TKL
+	=(P2*0.8+AX2*1.2)*0.55
+
+	Hit Power
+
+	=(O2*1.0+M2*0.5+AX2*0.5)*.5
+
+	Block Shedding
+
+	=(AX2*0.5+AW2*1.0+N2*0.3+M2*0.2)*.3
+
+	Finesse Moves
+
+	=(M2*0.3+N2*0.3+L2*0.2+AW2*0.8+AZ2*0.4)*.25
+
+	Power Moves
+
+	=(N2*0.15+O2*0.5+AW2*0.8+AZ2*0.4+M2*0.15)*.2
+
+	Pursuit
+
+	=PRODUCT(IF(OR(C2="Zone", C2="Slot"), (N2*0.1+M2*0.1+AW2*0.7+AX2*0.4+AZ2*0.5+O2*0.1+BJ2*0.1)*0.525, (N2*0.1+M2*0.1+AW2*0.7+AX2*0.4+AZ2*0.5+O2*0.1+BJ2*0.1)*0.5))
+
+	Man Coverage
+
+	=PRODUCT(IF(C3="Man to Man", (L3*0.25+M3*0.25+N3*0.25+AW3*0.4+BC3*0.3+Z3*0.15+AA3*0.15+Y3*0.25)*0.55, (L3*0.25+M3*0.25+N3*0.25+AW3*0.4+BC3*0.3+Z3*0.15+AA3*0.15+Y3*0.25)*0.5))
+
+	Zone Coverage
+
+	=PRODUCT(IF(C3="Zone", (N3*0.4+M3*0.2+AW3*0.7+BC3*0.5+AX3*0.2)*.55, (N3*0.4+M3*0.2+AW3*0.7+BC3*0.5+AX3*0.2)*.5))
+
+	Press
+
+	=PRODUCT(IF(C2="Man to Man", (BD2*0.6+AW2*0.4+O2*0.3+P2*0.2+M2*0.2+N2*0.3)*.55, (BD2*0.6+AW2*0.4+O2*0.3+P2*0.2+M2*0.2+N2*0.3)*.5))
+
+Safeties
+
+	Impact Blocking
+
+	=PRODUCT(IF(C2="Run Support", (O2*0.3+AZ2*0.2+BA2*0.2+AW2*0.15+BB2*0.15)*1.05, (O2*0.3+AZ2*0.2+BA2*0.2+AW2*0.15+BB2*0.15))
+
+	Play Recognition
+
+	=(P2*0.8+AX2*1.2)*0.55
+
+	Hit Power
+
+	=(O2*1+M2*0.5+AX2*0.5)*0.5
+	
+	Block Shedding
+
+	=PRODUCT(IF(C2="Run Support", (AX2*0.5+AW2*1.0+N2*0.3+M2*0.2)*.475, (AX2*0.5+AW2*1.0+N2*0.3+M2*0.2)*.4
+
+	Finesse Moves
+
+	=(M2*0.3+N2*0.3+L2*0.2+AW2*0.8+AZ2*0.4)*.25
+
+	Power Moves
+
+	=(N2*0.15+O2*0.5+AW2*0.8+AZ2*0.4+M2*0.15)*.2
+
+	Pursuit
+
+	=PRODUCT(IF(C2="Run Support", (N2*0.1+M2*0.1+AW2*0.7+AX2*0.4+AZ2*0.5+O2*0.1+BJ2*0.1)*0.525, (N2*0.1+M2*0.1+AW2*0.7+AX2*0.4+AZ2*0.5+O2*0.1+BJ2*0.1)*.5))
+
+	Man Coverage
+
+	=(L3*0.25+M3*0.25+N3*0.25+AW3*0.4+BC3*0.3+Z3*0.15+AA3*0.15+Y3*0.25)*0.475
+
+	Zone Coverage
+
+	=PRODUCT(IF(C3="Zone", (N3*0.4+M3*0.2+AW3*0.7+BC3*0.5+AX3*0.2)*.55, (N3*0.4+M3*0.2+AW3*0.7+BC3*0.5+AX3*0.2)*.5))
+
+	Press
+
+	=(BD2*0.6+AW2*0.4+O2*0.3+P2*0.2+M2*0.2+N2*0.3)*.45
+
+	

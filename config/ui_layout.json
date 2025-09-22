@@ -1,0 +1,83 @@
+{
+    "Information": {
+            "Player Details": ["First Name", "Last Name","Age", "Birthday", "CollegeName", "College", "Home Town", "Home State", "Overall", "Potential"],
+            "Team Info": ["TeamName", "Team ID", "PositionName", "Position", "Jersey Num.", "Years Pro", "Previous Team ID"],
+            "Physicals / IDs": ["Height", "Weight", "Player ID", "Portrait ID", "Player/Face Assets", "NFL ID", "NFL Icon"],
+            "Misc. Info": ["XP Rate/TraitDevelopment", "Archetype", "Career Phase","Draft Round", "DRAFTPICK", "DRAFTTEAM", "Team Captain", "CaptainsPatch", "PLYR_PERFORMLEVEL", "PLYR_COMMENT", "Tendency", "Pro Bowl"]
+        },
+        "Physical": {
+            "Core": ["Speed", "Acceleration", "Agility", "Awareness", "Strength", "Jump"],
+            "Durability": ["Stamina", "Toughness", "Injury"],
+            "Misc": ["Ego", "Confidence", "Importance", "Dom. Hand", "Fatigue"]
+        },
+        "Offense": {
+            "Ball Carrier": ["Carry", "Ball Carrier Vision", "Juke Move", "Spin Move", "Stiff Arm", "Trucking", "Break Tackle", "Elusive/COD"],
+            "Receiving": ["Catch", "Catch In Traffic", "Spec. Catch", "Release", "Short Route Run", "Medium Route Run", "Deep Route Run"],
+            "Blocking": ["Run Block", "Pass Block", "Lead Block", "Impact Block", "Pass Block Finesse", "Pass Block Strength", "Run Block Finesse", "Run Block Strnegth"],
+            "Throw Power / Accuracy": ["Throw Power", "Throw Accuracy", "Throw Short", "Throw Medium", "Throw Deep"],
+            "Situational": ["Throw On Run", "Play Action", "Throw Under Pressure", "Break Sack"]
+        },
+        "Defense": {
+            "Tackling": ["Tackle", "Hit Power", "Pursuit"],
+            "Coverage": ["Man Coverage", "Zone Cover", "Press Cover"],
+            "Lineman": ["Block Shed", "Power Moves", "Finesse Moves", "Play Recognition"]
+        },
+        "Kicking": {
+            "Kicking": ["Kick Power", "Kick Accuracy"],
+            "Returning": ["Kick Return"]
+        },
+        "Contract": {
+            "General": ["Contract Length", "Contract Years Left", "Years With Team", "Current Salary", "Total Salary", "Signing Bonus Total", "Previous Contract Length", "Previous Salary", "Previous Bonus", "Holdout", "LASTHOLDOUTYEAR"],
+            "Yearly Salary": ["Salary Year 0", "Salary Year 1", "Salary Year 2", "Salary Year 3", "Salary Year 4", "Salary Year 5", "Salary Year 6"],
+            "Yearly Bonus": ["Bonus Year 0", "Bonus Year 1", "Bonus Year 2", "Bonus Year 3", "Bonus Year 4", "Bonus Year 5", "Bonus Year 6"]
+        },
+        "Traits": {
+            "General": ["Clutch", "High Motor", "Penalty"],
+            "Offense": ["Tuck & Run", "Covers Ball", "Drops Open pass", "Aggressive Catch", "Throw Away", "Throw Spiral","Fight Yards", "Run After Catch", "Keep Feet In Bounds", "TRAIT_PUMPFAKE", "Force Passes", "Possession Catch", "Sense Pressure","Sideline Catch", "TRAIT_DEEP_BALL", "TRAIT_QBSTYLE/Celebration", "TRAIT_SENSE_PRESSURE_MAX"],
+            "Defense": ["Strips Ball", "Big Hitter", "Bull Rush", "DL Spin", "DL Swim", "TRAIT_TACKLELOW", "Plays Ball"]
+        },
+        "Styles":{
+            "Styles": ["QB Style", "Endzone Play", "Running Style", "Stance", "Throw Style"]
+        },
+         "Visuals": {
+            "Body": ["Skin Tone", "Face ID"],
+            "Gear & Equipment": ["Towel", "JERSEYTYPE", "JerseySleeveType","Equipment Code", "SIDELINE_HEADGEAR", "Helmet","Visor", "Mouthpiece", "Facemask", "Sleeves Temp", "Eye Paint", "Flak Jacket", "Hand Warmer", "Neck Roll","Sock Height" ,"PLYR_BREATHERITE", "PLYR_UNDERSHIRT","Pad Size" , "Pad Defn", "Sleeve Left", "Back Plate"],
+            "Body Morphs": [
+                                "Arm Definition", "Thigh Size", "Thigh Definition", "Calf Size", "Calf Definition","Chest Definition", "Gut Size", "Gut Definition", "Glute Size", "Glute Definition", "Arm Size",
+                                "Arm Defn",
+                                "Butt Defn",
+                                "Butt Size",
+                                "Calf Defn",
+                                "Foot Defn",
+                                "Gut Defn",
+                                "Left Ankle",
+                                "Left Elbow",
+                                "Left Hand",
+                                "Left Knee",
+                                "Left Knee/Thigh",
+                                "Left Shoe",
+                                "Left Wrist",
+                                "NECKTYPE",
+                                "PlayerBottom",
+                                "PlayerTop",
+                                "Right Ankle",
+                                "Right Elbow",
+                                "Right Hand",
+                                "Right Knee",
+                                "Right Knee/Thigh",
+                                "Right Shoe",
+                                "Right Sleeve",
+                                "Right Wrist",
+                                "Shoulder Defn",
+                                "Shoulder Size",
+                                "Thigh Defn",
+                                "Waist Defn",
+                                "Waist Size",
+                                "Feet Base",
+                                "Feet Barycentric"
+                                ]
+        },
+        "Injury": {
+            "Injury Data": ["Inury", "Last Healthy Yeat", "INIR", "INJR", "INJL", "INJS", "INJT", "INSI", "INTW", "TGID_injy"]
+        }
+}
