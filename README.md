@@ -81,11 +81,12 @@ This project uses **PyInstaller** to package the application into a single `.exe
 
 1.  Ensure you have followed the "For Developers" setup steps.
 2.  Make sure PyInstaller is installed (`pip install pyinstaller`).
-3.  Run the build command from the project's root directory:
+3.  Download the nodejs standalone binary from [here](https://nodejs.org/en/download) and extract it to the project root in a folder named 'node'.
+4.  Run the build command from the project's root directory:
     ```sh
     pyinstaller MREP.spec
     ```
-4.  The final standalone executable will be located in the `dist/` folder.
+5.  The final standalone executable will be located in the `dist/` folder.
 
 ## License
 
