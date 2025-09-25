@@ -40,7 +40,7 @@ If you want to run the application from the source code or contribute to its dev
 
 1.  **Prerequisites:**
     *   Python 3.10+
-    *   Node.js (for the roster I/O script)
+    *   Node.js version 16.20.2 (for the roster I/O script) 
 
 2.  **Clone the repository:**
     ```sh
