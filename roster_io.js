@@ -5,17 +5,16 @@ const path = require('path');
 const DEBUG_WRITE_FILES = false; 
 const DEBUG_OUTPUT_DIR = 'debug_output';
 
-// Helper to find a table by its name from the _tables array.
 function findTableByName(file, tableName) {
     if (!file || !file._tables) return null;
     return file._tables.find(table => table.name === tableName);
 }
 
-// Helper to robustly convert a library record to a simple key-value object.
 function simplifyRecord(record) {
     const simpleFields = {};
     if (!record) return simpleFields;
 
+    // 1. Read from the base fields
     if (record._fields) {
         for (const key in record._fields) {
             const value = record._fields[key].value;
@@ -25,6 +24,7 @@ function simplifyRecord(record) {
         }
     }
 
+    // 2. Read from CharacterVisuals
     if (record.CharacterVisuals && record.CharacterVisuals._fields) {
         for (const key in record.CharacterVisuals._fields) {
             const value = record.CharacterVisuals._fields[key].value;
@@ -34,6 +34,7 @@ function simplifyRecord(record) {
         }
     }
 
+    // 3. (THE FIX) Read from PlayerRatings - This is likely where PLPM is.
     if (record.PlayerRatings && record.PlayerRatings._fields) {
         for (const key in record.PlayerRatings._fields) {
             const value = record.PlayerRatings._fields[key].value;
@@ -47,6 +48,7 @@ function simplifyRecord(record) {
 }
 
 function readRoster(filePath) {
+    // This function does not need changes, as it uses the now-fixed simplifyRecord helper.
     if (!fs.existsSync(filePath)) {
         console.error(`Error reading roster: Input file not found: ${filePath}`);
         process.exit(1);
@@ -115,6 +117,10 @@ async function writeRoster(originalFilePath, newFilePath) {
                             else if (recordToUpdate.CharacterVisuals && recordToUpdate.CharacterVisuals._fields[fieldKey]) {
                                 recordToUpdate.CharacterVisuals._fields[fieldKey].value = newRecord[fieldKey];
                             }
+                            // Also check in Career - This is where PLDT is located.
+                            else if (recordToUpdate.Career && recordToUpdate.Career._fields[fieldKey]) {
+                                recordToUpdate.Career._fields[fieldKey].value = newRecord[fieldKey];
+                            }
                             else if (recordToUpdate.PlayerRatings && recordToUpdate.PlayerRatings._fields[fieldKey]) {
                                 recordToUpdate.PlayerRatings._fields[fieldKey].value = newRecord[fieldKey];
                             }
@@ -132,7 +138,6 @@ async function writeRoster(originalFilePath, newFilePath) {
     }
 }
 
-// Supporting functions and Main execution logic
 function readStdin() { return new Promise((resolve, reject) => { let data = ''; process.stdin.setEncoding('utf8'); process.stdin.on('readable', () => { let chunk; while ((chunk = process.stdin.read()) !== null) { data += chunk; } }); process.stdin.on('end', () => { resolve(data); }); process.stdin.on('error', reject); }); }
 const args = process.argv.slice(2);
 const command = args[0];
