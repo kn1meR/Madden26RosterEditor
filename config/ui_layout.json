@@ -78,6 +78,6 @@
                                 ]
         },
         "Injury": {
-            "Injury Data": ["Inury", "Last Healthy Yeat", "INIR", "INJR", "INJL", "INJS", "INJT", "INSI", "INTW", "TGID_injy"]
+            "Injury Data": ["Inury", "Last Healthy Yeat", "Injury Reserve Status", "INJR", "Injury Length", "Injury Severity", "Injury Type", "Body Part", "Injury Weeks", "TGID_injy"]
         }
 }
