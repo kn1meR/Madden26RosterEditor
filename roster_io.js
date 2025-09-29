@@ -14,7 +14,6 @@ function simplifyRecord(record) {
     const simpleFields = {};
     if (!record) return simpleFields;
 
-    // 1. Read from the base fields
     if (record._fields) {
         for (const key in record._fields) {
             const value = record._fields[key].value;
@@ -24,7 +23,6 @@ function simplifyRecord(record) {
         }
     }
 
-    // 2. Read from CharacterVisuals
     if (record.CharacterVisuals && record.CharacterVisuals._fields) {
         for (const key in record.CharacterVisuals._fields) {
             const value = record.CharacterVisuals._fields[key].value;
@@ -34,7 +32,6 @@ function simplifyRecord(record) {
         }
     }
 
-    // 3. (THE FIX) Read from PlayerRatings - This is likely where PLPM is.
     if (record.PlayerRatings && record.PlayerRatings._fields) {
         for (const key in record.PlayerRatings._fields) {
             const value = record.PlayerRatings._fields[key].value;
@@ -48,7 +45,6 @@ function simplifyRecord(record) {
 }
 
 function readRoster(filePath) {
-    // This function does not need changes, as it uses the now-fixed simplifyRecord helper.
     if (!fs.existsSync(filePath)) {
         console.error(`Error reading roster: Input file not found: ${filePath}`);
         process.exit(1);
