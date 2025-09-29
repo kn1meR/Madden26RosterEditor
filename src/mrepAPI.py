@@ -469,8 +469,8 @@ class RosterWorker(QObject):
                 'XP Rate/TraitDevelopment': ('PROL', self.data_manager.inverse_dev_trait_map),
                 'Home State': ('PHSN', self.data_manager.inverse_state_map),
                 'Archetype': ('PLTY', self.data_manager.inverse_archetype_map),
-                'Career Phase': ('PPHS', self.data_manager.inverse_career_phase_map),
-                'DRAFTTEAM': ('PTDR', self.data_manager.inverse_team_map)
+                'Career Phase': ('PCPH', self.data_manager.inverse_career_phase_map),
+                'DRAFTTEAM': ('PLDT', self.data_manager.inverse_team_map)
             }
             for readable_col, (cryptic_col, inverse_map) in REVERSE_MAP_CONFIG.items():
                 if readable_col in df_play.columns:
@@ -1159,11 +1159,7 @@ class PlayerEditorWidget(QWidget):
                 elif attr == 'Career Phase':
                     self.model.loc[self.player_index, 'Career Phase'] = new_value
                     if new_value in self.data_manager.inverse_career_phase_map:
-                        self.model.loc[self.player_index, 'PPHS'] = self.data_manager.inverse_career_phase_map[new_value]
-                elif attr == 'DRAFTTEAM':
-                    self.model.loc[self.player_index, 'DRAFTTEAM'] = new_value
-                    if new_value in self.data_manager.inverse_team_map:
-                        self.model.loc[self.player_index, 'PTDR'] = self.data_manager.inverse_team_map[new_value]
+                        self.model.loc[self.player_index, 'PCPH'] = self.data_manager.inverse_career_phase_map[new_value]
                 else:
                     self.model.loc[self.player_index, attr] = new_value
             
@@ -2218,4 +2214,5 @@ if __name__ == "__main__":
     app.setStyleSheet(dark_stylesheet)
     editor = RosterEditor()
     editor.show()
+
     sys.exit(app.exec())
