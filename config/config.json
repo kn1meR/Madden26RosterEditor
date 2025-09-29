@@ -207,7 +207,13 @@
     "TRTS": "Throw Spiral",
     "TRWU": "Run After Catch",
     "TSPM": "TRAIT_SENSE_PRESSURE_MAX",
-    "PLFA": "Fatigue"
+    "PLFA": "Fatigue",
+    "INIR": "Injury Reserve Status",
+    "INJT": "Injury Type",
+    "INJL": "Injury Length",
+    "INJS": "Injury Severity",
+    "INSI": "Body Part",
+    "INTW": "Injury Weeks"
   },
   "position_map": {
     "0": "QB",
